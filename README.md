@@ -6,7 +6,7 @@ playboi is a music player like spotify except it's in cli
 run the main.py inside the playboi folder and rest u will be able to do it i suppose
 
 # Requirements
-ffmpeg
+ffmpeg \n
 the required lobraries in requirements.txt
 
 # Why does this exists

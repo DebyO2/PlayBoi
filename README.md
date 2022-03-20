@@ -10,4 +10,4 @@ ffmpeg \n
 the required lobraries in requirements.txt
 
 # Why does this exists
-Cuz it's on of my big projects in python in quite a while
+Cuz it's one of my big projects in python in quite a while

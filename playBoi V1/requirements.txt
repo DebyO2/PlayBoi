@@ -1,0 +1,4 @@
+keyboard==0.13.5
+pygame==2.0.1
+pytube==12.0.0
+youtube-search-python==1.6.1

@@ -1,7 +1,12 @@
+import ffmpeg
 import os
-import subprocess
-def convert(path,name):
-    # subprocess.call(['ffmpeg', '-i' ,path, '-ac', '2', '-f', 'mp3', f'{name}.mp3'])
-    subprocess.call(['ffmpeg', '-i', path, '-b:a', '192K', '-vn', f'{name}.mp3'],shell=True)
+import time
+def convert(path,name,destination):
+    video = ffmpeg.input(path)
+
+    audio = video.audio
+
+    stream = ffmpeg.output(audio, os.path.join(destination,name+".mp3"))
+
+    ffmpeg.run(stream)
     os.remove(path)
-    # os.system('cls')

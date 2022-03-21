@@ -18,9 +18,10 @@ def DownloadMusic(link : str):
         # print("nope")
         out_file = video.download(output_path=destination) #download of the video
         base, ext = os.path.splitext(out_file)
-        converter.convert(out_file, base,destination)
+        base = base+".mp3"
+        converter.convert(out_file,os.path.join(destination,base))
         os.system('cls')
-        return [True,os.path.join(destination,base+".mp3"),name]
+        return [True,os.path.join(destination,base),name]
 
 if __name__ == '__main__':
     linko = input("Give the link of the song u wanna downlaod it will be downlaoded in music folder :")

@@ -18,7 +18,7 @@ def DownloadMusic(link : str):
         # print("nope")
         out_file = video.download(output_path=destination) #download of the video
         base, ext = os.path.splitext(out_file)
-        converter.convert(out_file, base)
+        converter.convert(out_file, base,destination)
         os.system('cls')
         return [True,os.path.join(destination,base+".mp3"),name]
 

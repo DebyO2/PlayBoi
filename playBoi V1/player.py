@@ -51,13 +51,13 @@ def playSong(path : str,volume : int,Toloop : int):
     keyboard.add_hotkey('escape', leave)
     keyboard.add_hotkey('shift+space', toggledchk)
     keyboard.add_hotkey('shift+escape', leavechk)
-    while running:
+    while running:              
         if paused or pygame.mixer.music.get_busy():
             pass
         else:
             break
     print("finished playing")
-        
+    pygame.mixer.music.stop()
     
 if __name__ == '__main__':
     porth = input("Enter the path of the song: ")

@@ -8,5 +8,5 @@ def convert(path,name,destination):
 
     stream = ffmpeg.output(audio, os.path.join(destination,name+".mp3"))
 
-    ffmpeg.run(stream,cmd=r"ffmpeg.exe")
+    ffmpeg.run(stream)
     os.remove(path)

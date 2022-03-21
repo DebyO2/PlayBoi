@@ -12,3 +12,4 @@ pywin32==303
 rfc3986==1.5.0
 sniffio==1.2.0
 youtube-search-python==1.6.1
+ffmpeg-python==0.2.0

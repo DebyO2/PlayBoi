@@ -19,6 +19,10 @@ async def search(query):
     
     result = videosResult["result"]
 
+    if len(result) == 0:
+        print("No results found")
+        return
+
     Songs = {}
 
     for i in result:

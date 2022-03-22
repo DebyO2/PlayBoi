@@ -39,11 +39,13 @@ def leavechk():
     pygame.mixer.music.stop()
 
 def playSong(path : str,volume : int,Toloop : int):
+    global paused
+    global running
+    running = True
     print("spacebar         : pause/unpause (within the window)")
     print("shift + spacebar : pause/unpause (global shortcut)")
     print("esc              : stop          (within the window)")
     print("shift + esc      : stop          (global shortcut)\n")
-    pygame.mixer.music.load(path)
     pygame.mixer.music.load(path)
     pygame.mixer.music.set_volume(volume)
     pygame.mixer.music.play(Toloop)
@@ -51,6 +53,8 @@ def playSong(path : str,volume : int,Toloop : int):
     keyboard.add_hotkey('escape', leave)
     keyboard.add_hotkey('shift+space', toggledchk)
     keyboard.add_hotkey('shift+escape', leavechk)
+    print(running)
+    print(paused)
     while running:              
         if paused or pygame.mixer.music.get_busy():
             continue
@@ -58,6 +62,8 @@ def playSong(path : str,volume : int,Toloop : int):
             break
     print("finished playing")
     pygame.mixer.music.stop()
+    pygame.mixer.music.unload()
+    keyboard.unhook_all_hotkeys()
     
 if __name__ == '__main__':
     porth = input("Enter the path of the song: ")

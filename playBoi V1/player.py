@@ -53,7 +53,7 @@ def playSong(path : str,volume : int,Toloop : int):
     keyboard.add_hotkey('shift+escape', leavechk)
     while running:              
         if paused or pygame.mixer.music.get_busy():
-            pass
+            continue
         else:
             break
     print("finished playing")

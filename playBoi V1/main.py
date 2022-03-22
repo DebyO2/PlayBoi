@@ -68,18 +68,19 @@ if __name__ == '__main__':
                     print(f"{foles.index(j) + 1} || {j}")
                     
                 songtoplay = int(input("\nWhich song do u want to play(1,2,3...): ")) - 1
-                
-                sang = foles[songtoplay]
+                try:
+                    sang = foles[songtoplay]
 
-                poth = os.path.join(destiny,sang).replace('\\',r"\\")
+                    poth = os.path.join(destiny,sang).replace('\\',r"\\")
 
-                volume = int(input("Volume(1-100): "))/10
-                loopTo = int(input("To Loop? (0||1): "))*-1
-                
-                print(f"playing: {sang} ....")
+                    volume = int(input("Volume(1-100): "))/10
+                    loopTo = int(input("To Loop? (0||1): "))*-1
+                    
+                    print(f"playing: {sang} ....")
 
-                player.playSong(poth,volume,loopTo)
-
+                    player.playSong(poth,volume,loopTo)
+                except:
+                    print("oops something went wrong")
             
             elif mode == "online":
 

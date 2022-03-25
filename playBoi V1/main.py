@@ -42,19 +42,18 @@ async def search(query):
     if sung[0] == True:
         volume = int(input("Volume(1-100): "))/10
         loopTo = int(input("To Loop? (0||1): "))*-1
-        player.playSong(sung[1],volume,loopTo)
+        player.playSong(sung[1],volume,loopTo,offline=False)
     elif sung[0] == False:
         print("the song is already downloaded,will be played from the database")
         volume = int(input("Volume(1-100): "))/10
         loopTo = int(input("To Loop? (0||1): "))*-1
-        player.playSong(sung[1],volume,loopTo)
+        player.playSong(sung[1],volume,loopTo,offline=True)
         
 
 if __name__ == '__main__':
 
     while True:
-        command = input("\nEnter your command(for now only play and exit exists): ")
-
+        command = input("\nEnter your command(use help to know the commands): ")
         if command == 'play':
             mode = input("\nEnter your mode(offline/online): ")
 
@@ -67,8 +66,9 @@ if __name__ == '__main__':
                 for j in foles:
                     print(f"{foles.index(j) + 1} || {j}")
                     
-                songtoplay = int(input("\nWhich song do u want to play(1,2,3...): ")) - 1
                 try:
+                    songtoplay = int(input("\nWhich song do u want to play(1,2,3...): ")) - 1
+
                     sang = foles[songtoplay]
 
                     poth = os.path.join(destiny,sang).replace('\\',r"\\")
@@ -78,7 +78,7 @@ if __name__ == '__main__':
                     
                     print(f"playing: {sang} ....")
 
-                    player.playSong(poth,volume,loopTo)
+                    player.playSong(poth,volume,loopTo,offline=True)
                 except:
                     print("oops something went wrong")
             
@@ -90,3 +90,34 @@ if __name__ == '__main__':
 
         elif command == "exit":
             exit()
+
+        elif command == "delete":
+            sucns = list(os.listdir(destiny))
+            sunc = ""
+            
+            for w in sucns:
+                print(f"{sucns.index(w) + 1} || {w}")
+            
+            try:
+                songtodel = int(input("\nWhich song do u want to play(1,2,3...): ")) - 1
+                sunc = sucns[songtodel]
+
+                puth = os.path.join(destiny,sunc).replace('\\',r"\\")
+                
+                os.remove(puth)
+
+                print(f"deleted: {sunc} ....")
+            except:
+                print("oops something went wrong")
+        
+        elif command == "show":
+            sucns = list(os.listdir(destiny))
+
+            for w in sucns:
+                print(f"{sucns.index(w) + 1} || {w}")
+
+        elif command == "help":
+            print('| play : to play the songs\n| exit : to exit\n| delete : to delete a song from the database\n| show : shows all the songs in database')
+
+        else:
+            print("give the computer to your mom kid")

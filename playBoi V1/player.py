@@ -52,7 +52,7 @@ def playSong(path : str,offline :bool):
     number_of_time_space_pressed = 0
     global name
     name = GetWindowText(GetForegroundWindow())
-    volume = int(input("Volume(1-100): "))/10
+    volume = int(input("Volume(1-150): "))/100
     Toloop = int(input("To Loop? (0||1): "))*-1
     # print(name)
     global paused
@@ -76,8 +76,7 @@ def playSong(path : str,offline :bool):
    
     while running:              
         if paused or pygame.mixer.music.get_busy():
-            # print(GetWindowText(GetForegroundWindow()))
-            # print(name)
+            
             continue   
         else:
             print("finished playing")

@@ -13,3 +13,4 @@ rfc3986==1.5.0
 sniffio==1.2.0
 youtube-search-python==1.6.1
 moviepy==1.0.3
+pillow>=10.0.0 # not directly required, pinned by Snyk to avoid a vulnerability
